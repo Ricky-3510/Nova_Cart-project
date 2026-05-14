@@ -15,6 +15,7 @@
             }
 
             body {
+                  box-sizing: border-box;
                   background: #f5f5f5;
                   color: #111;
             }
@@ -80,7 +81,7 @@
             /* Login Container */
 
             .container {
-                  width: 1220px;
+                  width: 1100px;
                   background: white;
                   margin: 50px auto;
                   border-radius: 10px;
@@ -94,7 +95,7 @@
                   position: relative;
             }
 
-            .left img {
+           .left img {
                 filter: brightness(0.4) contrast(1.1);
                 width: 100%;
                 height: 100%;
@@ -109,21 +110,21 @@
             }
 
             .overlay h4 {
-                  color: #9ff4d2;
+                  color: #a7f3d0;
                   letter-spacing: 2px;
-                  margin-bottom: 20px;
+                  margin-bottom: 15px;
             }
 
             .overlay h1 {
-                  font-size: 52px;
-                  line-height: 62px;
+                  font-size: 36px;
+                  line-height: 55px;
                   margin-bottom: 20px;
             }
 
             .overlay p {
-                  width: 90%;
-                  font-size: 22px;
-                  line-height: 34px;
+                  width: 85%;
+                  font-size: 20px;
+                  line-height: 30px;
             }
 
             .right {
@@ -266,9 +267,9 @@
 
             <div class="nav-right">
 
-                  <button class="btn">Login</button>
+                  <button class="btn" onclick="window.location.href='login.html'">Login</button>
 
-                  <button class="btn dark-btn">
+                  <button class="btn dark-btn" onclick="window.location.href='Registration.html'">
                         Register
                   </button>
 
@@ -286,16 +287,9 @@
                         alt="Login Image">
 
                   <div class="overlay">
-
                         <h4>WELCOME BACK</h4>
-
-                        <h1>
-                              Access your cart and continue shopping faster.
-                        </h1>
-
-                        <p>
-                              Your demo account is stored locally in this browser for portfolio and learning use.
-                        </p>
+                        <h1>Access your cart and continue shopping faster.</h1>
+                        <p>Your demo account is stored locally in this browser for portfolio and learning use.</p>
 
                   </div>
 
@@ -334,11 +328,11 @@
                         <div class="remember">
 
                               <div class="remember-left">
-                                    <input type="checkbox" checked>
+                                    <input type="checkbox" unchecked>
                                     <label>Remember me</label>
                               </div>
 
-                              <a href="#">Create account</a>
+                              <a href="Registration.html">Create account</a>
 
                         </div>
 

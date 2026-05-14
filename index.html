@@ -77,6 +77,74 @@
             width: 18px;
         }
 
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-box {
+            position: absolute;
+            top: 55px;
+            left: 0;
+            width: 280px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 12px;
+            display: none;
+            z-index: 100;
+        }
+
+        .search-box.active {
+            display: block;
+        }
+
+        .search-box input {
+            width: 100%;
+            height: 42px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 0 12px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-results {
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .search-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .search-item:hover {
+            background: #f5f5f5;
+        }
+
+        .search-item img {
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .search-item h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .search-item p {
+            font-size: 13px;
+            color: #666;
+        }
+
         select {
             padding: 0 15px;
             color: #444;
@@ -389,9 +457,21 @@
 
         <div class="nav-right">
 
-            <button class="icon-btn">
-                <img src="../NovaCart/search-icon.png" alt="">
-            </button>
+            <div class="search-wrapper">
+
+                <button class="icon-btn" id="searchBtn">
+                    <img src="../NovaCart/search-icon.png" alt="">
+                </button>
+
+                <div class="search-box" id="searchBox">
+
+                    <input type="text" id="searchInput" placeholder="Search products...">
+
+                    <div class="search-results" id="searchResults"></div>
+
+                </div>
+
+            </div>
 
             <select id="categoryFilter">
                 <option value="all">All Categories</option>
@@ -702,7 +782,62 @@
 
         loadProducts();
 
+    //     const searchBtn = document.getElementById("searchBtn");
+    //     const searchBox = document.getElementById("searchBox");
+    //     const searchInput = document.getElementById("searchInput");
+    //     const searchResults = document.getElementById("searchResults");
+
+    //     searchBtn.addEventListener("click", () => {
+
+    //         searchBox.classList.toggle("active");
+
+    //         searchInput.focus();
+    //     });
+
+    //     searchInput.addEventListener("input", () => {
+
+    //         const value = searchInput.value.toLowerCase();
+
+    //         if (value === "") {
+
+    //             searchResults.innerHTML = "";
+    //             return;
+    //         }
+
+    //         const matchedProducts = allProducts.filter(product =>
+    //             product.name.toLowerCase().includes(value)
+    //         );
+
+    //         if (matchedProducts.length === 0) {
+
+    //             searchResults.innerHTML = `
+    //         <p style="padding:10px; color:#666;">
+    //             No products found
+    //         </p>
+    //     `;
+
+    //             return;
+    //         }
+
+    //         searchResults.innerHTML = matchedProducts.map(product => `
+
+    //     <div class="search-item">
+
+    //         <img src="${product.image}" alt="${product.name}">
+
+    //         <div>
+    //             <h4>${product.name}</h4>
+    //             <p>$${product.price}</p>
+    //         </div>
+
+    //     </div>
+
+    // `).join("");
+
+    //     });
+
     </script>
 
 </body>
+
 </html>

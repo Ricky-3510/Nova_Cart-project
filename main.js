@@ -1,20 +1,9 @@
-/* =========================================
-   main.js — NovaCart
-   Single script for all pages.
-   Each section guards with an existence check
-   so nothing errors on pages where the
-   relevant elements don't exist.
-   ========================================= */
-
-/* =========================================
-   INDEX — Product catalog + Cart
-   ========================================= */
 if (document.getElementById("productsGrid")) {
 
-    let allProducts    = [];
+    let allProducts      = [];
     let filteredProducts = [];
-    let cart           = [];
-    let currentPage    = 1;
+    let cart             = JSON.parse(localStorage.getItem("novaCart")) || [];
+    let currentPage      = 1;
     const productsPerPage = 10;
 
     /* ----- LOAD PRODUCTS ----- */
@@ -192,6 +181,9 @@ if (document.getElementById("productsGrid")) {
         cartSubtotal.innerText = "$" + total.toFixed(2);
         shippingCost.innerText = total === 0 ? "$0.00" : "$10.00";
         cartTotal.innerText    = total === 0 ? "$0.00" : "$" + (total + 10).toFixed(2);
+
+        // Persist cart across page refreshes
+        localStorage.setItem("novaCart", JSON.stringify(cart));
     }
 
     /* ----- CART SIDEBAR OPEN / CLOSE (plain JS, no Bootstrap) ----- */
@@ -240,7 +232,7 @@ if (document.getElementById("productsGrid")) {
     window.decreaseQty   = decreaseQty;
     window.removeFromCart = removeFromCart;
 
-    loadProducts();
+    loadProducts().then(() => updateCart());
 
     /* ----- SEARCH — toggles dropdown, filters product grid live ----- */
     const searchBtn   = document.getElementById("searchBtn");

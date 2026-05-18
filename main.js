@@ -1,3 +1,14 @@
+/* =========================================
+   main.js — NovaCart
+   Single script for all pages.
+   Each section guards with an existence check
+   so nothing errors on pages where the
+   relevant elements don't exist.
+   ========================================= */
+
+/* =========================================
+   INDEX — Product catalog + Cart
+   ========================================= */
 if (document.getElementById("productsGrid")) {
 
     let allProducts      = [];
@@ -186,7 +197,7 @@ if (document.getElementById("productsGrid")) {
         localStorage.setItem("novaCart", JSON.stringify(cart));
     }
 
-    /* ----- CART SIDEBAR OPEN / CLOSE ----- */
+    /* ----- CART SIDEBAR OPEN / CLOSE (plain JS, no Bootstrap) ----- */
     window.openCart = function () {
         document.getElementById("cartSidebar").classList.add("cart-sidebar--open");
         document.getElementById("cartOverlay").classList.add("cart-overlay--visible");
@@ -227,12 +238,16 @@ if (document.getElementById("productsGrid")) {
     };
 
     // Expose cart functions used in inline onclicks inside cartItems innerHTML
-    window.addToCart     = addToCart;
-    window.increaseQty   = increaseQty;
-    window.decreaseQty   = decreaseQty;
+    window.addToCart      = addToCart;
+    window.increaseQty    = increaseQty;
+    window.decreaseQty    = decreaseQty;
     window.removeFromCart = removeFromCart;
 
-    loadProducts().then(() => updateCart());
+    // Load products into the grid
+    loadProducts();
+
+    // Restore saved cart from localStorage immediately — no need to wait for products
+    updateCart();
 
     /* ----- SEARCH — toggles dropdown, filters product grid live ----- */
     const searchBtn   = document.getElementById("searchBtn");
@@ -277,7 +292,9 @@ if (document.getElementById("productsGrid")) {
 
 }
 
-/* LOGIN — Form validation */
+/* =========================================
+   LOGIN — Form validation
+   ========================================= */
 if (document.getElementById("loginForm")) {
 
     document.getElementById("loginForm").addEventListener("submit", function (e) {
@@ -316,7 +333,9 @@ if (document.getElementById("loginForm")) {
     });
 }
 
-/* REGISTRATION — Form validation & storage */
+/* =========================================
+   REGISTRATION — Form validation & storage
+   ========================================= */
 if (document.getElementById("registerForm")) {
 
     document.getElementById("registerForm").addEventListener("submit", function (e) {

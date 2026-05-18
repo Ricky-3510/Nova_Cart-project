@@ -186,7 +186,7 @@ if (document.getElementById("productsGrid")) {
         localStorage.setItem("novaCart", JSON.stringify(cart));
     }
 
-    /* ----- CART SIDEBAR OPEN / CLOSE (plain JS, no Bootstrap) ----- */
+    /* ----- CART SIDEBAR OPEN / CLOSE ----- */
     window.openCart = function () {
         document.getElementById("cartSidebar").classList.add("cart-sidebar--open");
         document.getElementById("cartOverlay").classList.add("cart-overlay--visible");
@@ -277,9 +277,7 @@ if (document.getElementById("productsGrid")) {
 
 }
 
-/* =========================================
-   LOGIN — Form validation
-   ========================================= */
+/* LOGIN — Form validation */
 if (document.getElementById("loginForm")) {
 
     document.getElementById("loginForm").addEventListener("submit", function (e) {
@@ -318,9 +316,7 @@ if (document.getElementById("loginForm")) {
     });
 }
 
-/* =========================================
-   REGISTRATION — Form validation & storage
-   ========================================= */
+/* REGISTRATION — Form validation & storage */
 if (document.getElementById("registerForm")) {
 
     document.getElementById("registerForm").addEventListener("submit", function (e) {

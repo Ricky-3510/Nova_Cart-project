@@ -1,14 +1,3 @@
-/* =========================================
-   main.js — NovaCart
-   Single script for all pages.
-   Each section guards with an existence check
-   so nothing errors on pages where the
-   relevant elements don't exist.
-   ========================================= */
-
-/* =========================================
-   INDEX — Product catalog + Cart
-   ========================================= */
 if (document.getElementById("productsGrid")) {
 
     let allProducts      = [];
@@ -292,9 +281,7 @@ if (document.getElementById("productsGrid")) {
 
 }
 
-/* =========================================
-   LOGIN — Form validation
-   ========================================= */
+/* LOGIN — Form validation */
 if (document.getElementById("loginForm")) {
 
     document.getElementById("loginForm").addEventListener("submit", function (e) {
@@ -333,9 +320,7 @@ if (document.getElementById("loginForm")) {
     });
 }
 
-/* =========================================
-   REGISTRATION — Form validation & storage
-   ========================================= */
+/* REGISTRATION — Form validation & storage */
 if (document.getElementById("registerForm")) {
 
     document.getElementById("registerForm").addEventListener("submit", function (e) {
